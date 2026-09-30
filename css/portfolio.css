@@ -1,0 +1,456 @@
+/*
+ * shahabuddin.me
+ * Bootstrap 4 grid + a small amount of custom CSS.
+ * Keeps the original site's orange (#F05F40), Open Sans and Merriweather.
+ */
+
+:root {
+  --ink: #1f2328;
+  --text: #3a3f45;
+  --muted: #71767d;
+  --line: #e8e4de;
+  --paper: #fbfaf7;
+  --accent: #F05F40;
+  --accent-ink: #c4441f;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--paper);
+  color: var(--text);
+  font-family: 'Merriweather', Georgia, serif;
+  font-size: 16px;
+  line-height: 1.8;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4, h5, h6,
+.nav-link, .navbar-brand, .meta, .btn {
+  font-family: 'Open Sans', 'Helvetica Neue', Arial, sans-serif;
+  color: var(--ink);
+}
+
+a {
+  color: var(--ink);
+  text-decoration: underline;
+  text-decoration-color: rgba(240, 95, 64, .55);
+  text-underline-offset: 3px;
+  transition: color .15s;
+}
+
+a:hover {
+  color: var(--accent-ink);
+  text-decoration-color: var(--accent);
+}
+
+::selection {
+  background: var(--accent);
+  color: #fff;
+}
+
+section[id] {
+  scroll-margin-top: 70px;
+}
+
+.container {
+  max-width: 1000px;
+}
+
+/* ---------- Navigation ---------- */
+#mainNav {
+  background: rgba(251, 250, 247, .94);
+  border-bottom: 1px solid transparent;
+  padding-top: .9rem;
+  padding-bottom: .9rem;
+  transition: border-color .2s, padding .2s;
+}
+
+#mainNav.scrolled {
+  border-bottom-color: var(--line);
+  padding-top: .55rem;
+  padding-bottom: .55rem;
+}
+
+#mainNav .navbar-brand {
+  font-weight: 800;
+  font-size: 1rem;
+  text-decoration: none;
+  letter-spacing: -.01em;
+}
+
+#mainNav .navbar-brand span {
+  color: var(--accent);
+}
+
+#mainNav .nav-link {
+  font-size: .78rem;
+  font-weight: 700;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--muted);
+  padding: .5rem .8rem;
+}
+
+#mainNav .nav-link:hover,
+#mainNav .nav-link.active {
+  color: var(--accent-ink);
+}
+
+#mainNav .navbar-toggler {
+  border: 0;
+  padding: .25rem 0;
+}
+
+/* Transparent navbar over the home photo (desktop), solid once scrolled */
+@media (min-width: 992px) {
+  #mainNav:not(.scrolled) {
+    background: transparent;
+  }
+  #mainNav:not(.scrolled) .navbar-brand {
+    color: #fff;
+  }
+  #mainNav:not(.scrolled) .nav-link {
+    color: rgba(255, 255, 255, .75);
+  }
+  #mainNav:not(.scrolled) .nav-link:hover {
+    color: #fff;
+  }
+}
+
+/* ---------- Intro (home screen with the laptop photo) ---------- */
+.intro {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  padding: 120px 0 80px;
+  color: #fff;
+  background:
+    linear-gradient(rgba(24, 22, 21, .55), rgba(24, 22, 21, .7)),
+    url("../img/header.jpg") center center / cover no-repeat;
+}
+
+.intro .container {
+  width: 100%;
+}
+
+.intro h1 {
+  color: #fff;
+  font-size: 3.6rem;
+  font-weight: 800;
+  letter-spacing: -.035em;
+  line-height: 1.05;
+  margin-bottom: .6rem;
+}
+
+.intro h1::after {
+  content: "";
+  display: block;
+  width: 50px;
+  height: 3px;
+  background: var(--accent);
+  margin-top: 1.4rem;
+}
+
+.intro .role {
+  font-family: 'Open Sans', 'Helvetica Neue', Arial, sans-serif;
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, .8);
+  margin: 1.2rem 0 1.25rem;
+}
+
+.intro .lead-text {
+  font-size: 1.1rem;
+  font-weight: 300;
+  line-height: 1.85;
+  color: rgba(255, 255, 255, .85);
+  max-width: 34rem;
+  margin-bottom: 2.25rem;
+}
+
+.intro .photo {
+  width: 210px;
+  height: 210px;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 0 0 0 6px rgba(255, 255, 255, .18);
+}
+
+.intro-links {
+  font-family: 'Open Sans', 'Helvetica Neue', Arial, sans-serif;
+  font-size: .95rem;
+}
+
+.intro-links a {
+  color: #fff;
+  margin-right: 1.4rem;
+  white-space: nowrap;
+}
+
+.intro-links a:hover {
+  color: #fff;
+  text-decoration-color: #fff;
+}
+
+.intro-links i {
+  color: rgba(255, 255, 255, .7);
+  margin-right: .3rem;
+}
+
+.intro-links .dropdown-item {
+  color: var(--ink);
+  margin: 0;
+}
+
+.scroll-hint {
+  position: absolute;
+  left: 50%;
+  bottom: 1.75rem;
+  transform: translateX(-50%);
+  color: rgba(255, 255, 255, .6);
+  font-size: 1.1rem;
+  text-decoration: none;
+}
+
+.scroll-hint:hover {
+  color: #fff;
+}
+
+.btn-resume {
+  display: inline-block;
+  background: var(--accent);
+  color: #fff;
+  font-weight: 700;
+  font-size: .85rem;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  text-decoration: none;
+  border-radius: 300px;
+  padding: .75rem 1.6rem;
+  margin: 0 1.2rem .75rem 0;
+}
+
+.btn-resume:hover {
+  background: #e24d2e;
+  color: #fff;
+}
+
+.dropdown-menu {
+  font-family: 'Open Sans', 'Helvetica Neue', Arial, sans-serif;
+  font-size: .9rem;
+  border: 1px solid var(--line);
+  border-radius: .5rem;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, .08);
+}
+
+.dropdown-item {
+  text-decoration: none;
+  padding: .5rem 1.2rem;
+}
+
+.dropdown-item:active {
+  background: var(--accent);
+}
+
+/* ---------- Content blocks (label on the left, content on the right) ---------- */
+.block {
+  padding: 70px 0;
+  border-top: 1px solid var(--line);
+}
+
+.block-title {
+  font-size: .8rem;
+  font-weight: 800;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  margin-bottom: 1.5rem;
+}
+
+/* the short orange rule from the original site */
+.block-title::before {
+  content: "";
+  display: block;
+  width: 40px;
+  height: 3px;
+  background: var(--accent);
+  margin-bottom: .9rem;
+}
+
+.block p {
+  margin-bottom: 1.1rem;
+}
+
+/* ---------- Experience ---------- */
+.job {
+  margin-bottom: 2.75rem;
+}
+
+.job:last-child {
+  margin-bottom: 0;
+}
+
+.job-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  flex-wrap: wrap;
+}
+
+.job h3 {
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin: 0;
+}
+
+.job h3 .at {
+  color: var(--muted);
+  font-weight: 400;
+}
+
+.meta {
+  font-size: .85rem;
+  color: var(--muted);
+}
+
+.job ul {
+  margin: .75rem 0 0;
+  padding-left: 1.1rem;
+}
+
+.job li {
+  font-size: .95rem;
+  margin-bottom: .35rem;
+}
+
+.job li::marker {
+  color: var(--accent);
+}
+
+/* ---------- Selected work ---------- */
+.work-item {
+  padding: 1.6rem 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.work-item:first-child {
+  padding-top: 0;
+}
+
+.work-item:last-child {
+  border-bottom: 0;
+  padding-bottom: 0;
+}
+
+.work-item h3 {
+  font-size: 1.15rem;
+  font-weight: 700;
+  margin-bottom: .15rem;
+}
+
+.work-item p {
+  font-size: .95rem;
+  margin: .5rem 0 .4rem;
+}
+
+.work-item .stack {
+  font-family: 'Open Sans', 'Helvetica Neue', Arial, sans-serif;
+  font-size: .82rem;
+  color: var(--muted);
+}
+
+/* ---------- Skills ---------- */
+.skills dt {
+  font-family: 'Open Sans', 'Helvetica Neue', Arial, sans-serif;
+  font-weight: 700;
+  color: var(--ink);
+  font-size: .95rem;
+}
+
+.skills dd {
+  font-size: .95rem;
+  margin-bottom: 1rem;
+}
+
+@media (min-width: 768px) {
+  .skills {
+    display: grid;
+    grid-template-columns: 11rem 1fr;
+    column-gap: 1.5rem;
+  }
+  .skills dd {
+    margin-bottom: .7rem;
+  }
+}
+
+/* ---------- Contact ---------- */
+.contact-line {
+  font-family: 'Open Sans', 'Helvetica Neue', Arial, sans-serif;
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--ink);
+  letter-spacing: -.01em;
+  line-height: 1.4;
+  margin-bottom: 1.5rem;
+}
+
+.contact-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  font-family: 'Open Sans', 'Helvetica Neue', Arial, sans-serif;
+}
+
+.contact-list li {
+  margin-bottom: .45rem;
+}
+
+.contact-list i {
+  width: 1.4rem;
+  color: var(--accent);
+}
+
+footer {
+  padding: 30px 0 40px;
+  border-top: 1px solid var(--line);
+  font-family: 'Open Sans', 'Helvetica Neue', Arial, sans-serif;
+  font-size: .82rem;
+  color: var(--muted);
+}
+
+/* ---------- Small screens ---------- */
+@media (max-width: 991px) {
+  #mainNav .navbar-collapse {
+    padding: .5rem 0;
+  }
+  #mainNav .nav-link {
+    padding: .6rem 0;
+  }
+}
+
+@media (max-width: 767px) {
+  .intro {
+    padding: 100px 0 70px;
+  }
+  .intro h1 {
+    font-size: 2.5rem;
+  }
+  .intro .photo {
+    width: 120px;
+    height: 120px;
+    margin-bottom: 1.75rem;
+  }
+  .scroll-hint {
+    display: none;
+  }
+  .block {
+    padding: 50px 0;
+  }
+  .contact-line {
+    font-size: 1.3rem;
+  }
+}
