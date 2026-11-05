@@ -202,11 +202,6 @@ section[id] {
   margin-right: .3rem;
 }
 
-.intro-links .dropdown-item {
-  color: var(--ink);
-  margin: 0;
-}
-
 .scroll-hint {
   position: absolute;
   left: 50%;
@@ -238,23 +233,6 @@ section[id] {
 .btn-resume:hover {
   background: #e24d2e;
   color: #fff;
-}
-
-.dropdown-menu {
-  font-family: 'Open Sans', 'Helvetica Neue', Arial, sans-serif;
-  font-size: .9rem;
-  border: 1px solid var(--line);
-  border-radius: .5rem;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, .08);
-}
-
-.dropdown-item {
-  text-decoration: none;
-  padding: .5rem 1.2rem;
-}
-
-.dropdown-item:active {
-  background: var(--accent);
 }
 
 /* ---------- Content blocks (label on the left, content on the right) ---------- */
@@ -295,10 +273,14 @@ section[id] {
 }
 
 .job-head {
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: .25rem 1rem;
   align-items: baseline;
-  flex-wrap: wrap;
+}
+
+.job-head > .meta {
+  white-space: nowrap;
 }
 
 .job h3 {
@@ -433,6 +415,10 @@ footer {
 }
 
 @media (max-width: 767px) {
+  .job-head {
+    grid-template-columns: 1fr;
+  }
+
   .intro {
     padding: 100px 0 70px;
   }
